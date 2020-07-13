@@ -6,6 +6,19 @@ const cors = require('cors');
 const controller = require('./socketInit');
 const handlerError = require('./server/handlerError/handler');
 
+
+const logger = require('./server/logger');
+
+logger.init(__dirname + 'errors.log');
+
+
+logger.log({
+    message: "ERROR!",
+    code: 500,
+    timestamp: Date.now(),
+    stackTrace: {}
+});
+
 const PORT = process.env.PORT || 9632;
 const app = express();
 
